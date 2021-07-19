@@ -2,7 +2,6 @@
   <main class="w-full h-screen">
     <Header />
     <Discover />
-    <Search />
   </main>
 </template>
 

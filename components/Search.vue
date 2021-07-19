@@ -6,10 +6,19 @@
       v-model="text"
       class="shadow-md rounded-md"
     />
-    <div class="" v-for="(movie, id) in movies" :key="id">
-      <div class="movie_result">
+    <div class="results" v-for="(movie, id) in movies" :key="id">
+      <router-link :to="{name: 'movie', 
+      params:{ name: movie.title, 
+      avg: movie.vote_average ,
+      img: movie.poster_path,
+      voteCount: movie.vote_count,
+      date: movie.release_date,
+      desc: movie.overview,
+      }}">
+      <div class="movie_result" v-show="isActive">
         {{ movie.title }}
       </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -22,13 +31,16 @@ export default {
   data() {
     return {
       text: "",
-      base_url:"https://api.themoviedb.org/3/search/movie?api_key=34acadda81ff298a5d269795b4379ded&query=",
+      base_url:
+        "https://api.themoviedb.org/3/search/movie?api_key=34acadda81ff298a5d269795b4379ded&query=",
       movies: [],
+      isActive: false,
     };
   },
 
   updated() {
     if (this.text.length > 0) {
+      this.isActive = true;
       axios
         .get(this.base_url + this.text)
         .then((datas) => {
@@ -38,7 +50,7 @@ export default {
           console.log(error);
         });
     } else if (this.text.length == 0) {
-
+      this.isActive = false;
     }
   },
 };
@@ -46,13 +58,16 @@ export default {
 
 <style scoped>
 .search_bar {
-  position: absolute;
+  position: fixed;
+  left: 50%;
+  top: 14px;
+  transform: translate(-50%);
   z-index: 10;
-  height: 500px;
+  height: 400px;
+  max-width: 400px;
 }
+
 .results {
-  position: absolute;
-  height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -63,8 +78,12 @@ export default {
   background-color: #fff;
 }
 
+.movie_result:hover{
+  background-color: whitesmoke;
+}
+
 input {
-  width: 250px;
+  width: 400px;
   padding: 10px;
   font-size: 20px;
   outline: none;

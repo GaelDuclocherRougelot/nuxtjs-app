@@ -68,7 +68,7 @@ export default {
 
 .img {
   padding: 10px;
-  border: solid 2px black;
+  border-bottom: solid 1px black;
   display: flex;
   align-items: center;
 }

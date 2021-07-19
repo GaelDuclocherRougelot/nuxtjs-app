@@ -1,6 +1,9 @@
 <template>
   <header class="w-full h-20 flex justify-between items-center">
-    <NavMenu />
+    <router-link to="/">
+    <h1 class="left-5 bottom-6 absolute text-xl font-serif cursor-pointer">MOVIESDb</h1>
+    </router-link>
+    <Search />
   </header>
 </template>
 
