@@ -25,9 +25,7 @@ export default {
   name: 'movie',
   data() {
     return {
-      baseImg: "https://image.tmdb.org/t/p/w500",
-      baseVid: "https://www.youtube.com/watch?v=",
-      vidKey: "BdJKm16Co6M"
+      
     }
   },
 }
