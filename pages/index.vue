@@ -1,5 +1,5 @@
 <template>
-  <main class="w-full h-screen" >
+  <main class="w-full h-screen">
     <Header />
     <Discover />
   </main>
