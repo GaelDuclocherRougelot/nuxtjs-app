@@ -38,6 +38,12 @@ export default {
     getImgUrl() {
       $.base_img + $.img_id;
     },
+    discoverAnimation() {
+      const gsap = this.$gsap
+
+      gsap.fromTo('.discover_cards', {opacity: 0, x: -200}, {opacity: 1, duration: 1, delay: 1, x: 0, ease: "power2"});
+      gsap.fromTo('.card', {opacity: 0, y: -30}, {opacity: 1, duration: 1, y: 0, delay: 2, ease: "power2" });
+    }
   },
 
   mounted() {
@@ -52,7 +58,9 @@ export default {
           $.imgs.push($.img_id);
         });
       });
-  },
+
+  this.discoverAnimation()
+  }
 };
 </script>
 
