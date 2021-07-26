@@ -2,9 +2,12 @@
   <div class="discover_cards">
     <h1>Discover</h1>
     <div class="card grid grid-cols-1">
+
       <div class="img" v-for="(movie, id) in movies" :key="id">
         <img :src="base_img + movie.poster_path" />
+
         <div class="info flex flex-col width-full h-full">
+
           <div class="flex flex-row">
             <h1>{{ movie.title }}</h1>
             <p class="mt-9">
@@ -30,20 +33,24 @@ export default {
       movies: [],
       imgs: [],
       base_img: "https://image.tmdb.org/t/p/w300",
-      img_id: "",
     };
   },
   props: ["value"],
   methods: {
-    getImgUrl() {
-      $.base_img + $.img_id;
-    },
-    discoverAnimation() {
-      const gsap = this.$gsap
+    // discoverAnimation() {
+    //   const gsap = this.$gsap;
 
-      gsap.fromTo('.discover_cards', {opacity: 0, x: -200}, {opacity: 1, duration: 1, delay: 1, x: 0, ease: "power2"});
-      gsap.fromTo('.card', {opacity: 0, y: -30}, {opacity: 1, duration: 1, y: 0, delay: 2, ease: "power2" });
-    }
+    //   gsap.fromTo(
+    //     ".discover_cards",
+    //     { opacity: 0, x: -200 },
+    //     { opacity: 1, duration: 1, delay: 1, x: 0, ease: "power2" }
+    //   );
+    //   gsap.fromTo(
+    //     ".card",
+    //     { opacity: 0, y: -30 },
+    //     { opacity: 1, duration: 1, y: 0, delay: 2, ease: "power2" }
+    //   );
+    // },
   },
 
   mounted() {
@@ -53,14 +60,10 @@ export default {
       )
       .then((response) => {
         this.movies = response.data.results;
-        $.movies.forEach((movie) => {
-          $.img_id = movie.poster_path;
-          $.imgs.push($.img_id);
-        });
       });
 
-  this.discoverAnimation()
-  }
+    // this.discoverAnimation();
+  },
 };
 </script>
 

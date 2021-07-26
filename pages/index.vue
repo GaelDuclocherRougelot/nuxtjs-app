@@ -6,9 +6,15 @@
 </template>
 
 <script>
+import Header from "@/components/Header.vue"
+import Discover from "@/components/Discover.vue"
 export default {
   name: "index",
   transition: "menu",
+  components: {
+    Header,
+    Discover,
+  },
   data() {
     return {
       movies: [],

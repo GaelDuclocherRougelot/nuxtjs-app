@@ -7,17 +7,22 @@
       class="shadow-md rounded-md"
     />
     <div class="results" v-for="(movie, id) in movies" :key="id">
-      <router-link :to="{name: 'movie', 
-      params:{ name: movie.title, 
-      avg: movie.vote_average ,
-      img: movie.poster_path,
-      voteCount: movie.vote_count,
-      date: movie.release_date,
-      desc: movie.overview,
-      }}">
-      <div class="movie_result" v-show="isActive">
-        {{ movie.title }}
-      </div>
+      <router-link
+        :to="{
+          name: 'movie',
+          params: {
+            name: movie.title,
+            avg: movie.vote_average,
+            img: movie.poster_path,
+            voteCount: movie.vote_count,
+            date: movie.release_date,
+            desc: movie.overview,
+          },
+        }"
+      >
+        <div class="movie_result" v-show="isActive">
+          {{ movie.title }}
+        </div>
       </router-link>
     </div>
   </div>
@@ -31,8 +36,7 @@ export default {
   data() {
     return {
       text: "",
-      base_url:
-        "https://api.themoviedb.org/3/search/movie?api_key=34acadda81ff298a5d269795b4379ded&query=",
+      base_url: "https://api.themoviedb.org/3/search/movie?api_key=34acadda81ff298a5d269795b4379ded&query=",
       movies: [],
       isActive: false,
     };
@@ -78,7 +82,7 @@ export default {
   background-color: #fff;
 }
 
-.movie_result:hover{
+.movie_result:hover {
   background-color: whitesmoke;
 }
 
