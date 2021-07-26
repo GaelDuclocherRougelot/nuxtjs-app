@@ -12,7 +12,7 @@ afterEach(() => {
 });
 
 describe('Discover', () => {
-  it('renders the component', () => {
+  it.only('render the component', () => {
     const div = wrapper.findAll('.discover_cards');
 
     expect(div.length).toBe(1);
