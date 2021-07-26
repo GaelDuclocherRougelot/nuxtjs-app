@@ -2,12 +2,10 @@
   <div class="discover_cards">
     <h1>Discover</h1>
     <div class="card grid grid-cols-1">
-
       <div class="img" v-for="(movie, id) in movies" :key="id">
         <img :src="base_img + movie.poster_path" />
 
         <div class="info flex flex-col width-full h-full">
-
           <div class="flex flex-row">
             <h1>{{ movie.title }}</h1>
             <p class="mt-9">
@@ -37,20 +35,20 @@ export default {
   },
   props: ["value"],
   methods: {
-    // discoverAnimation() {
-    //   const gsap = this.$gsap;
+    discoverAnimation() {
+      const gsap = this.$gsap;
 
-    //   gsap.fromTo(
-    //     ".discover_cards",
-    //     { opacity: 0, x: -200 },
-    //     { opacity: 1, duration: 1, delay: 1, x: 0, ease: "power2" }
-    //   );
-    //   gsap.fromTo(
-    //     ".card",
-    //     { opacity: 0, y: -30 },
-    //     { opacity: 1, duration: 1, y: 0, delay: 2, ease: "power2" }
-    //   );
-    // },
+      // gsap.fromTo(
+      //   ".discover_cards",
+      //   { opacity: 0, x: -200 },
+      //   { opacity: 1, duration: 1, delay: 1, x: 0, ease: "power2" }
+      // );
+      // gsap.fromTo(
+      //   ".card",
+      //   { opacity: 0, y: -30 },
+      //   { opacity: 1, duration: 1, y: 0, delay: 2, ease: "power2" }
+      // );
+    },
   },
 
   mounted() {
